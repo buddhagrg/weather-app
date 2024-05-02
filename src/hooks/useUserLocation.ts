@@ -34,7 +34,6 @@ export const useUserLocation = () => {
     }
 
     const showError = (error: any) => {
-        console.log(error?.message)
         setError(error?.message ?? "Unable to locate location");
     }
 

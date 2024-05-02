@@ -9,11 +9,8 @@ export type LocationContextProps = {
 
 const LocationContext = React.createContext<LocationContextProps | null>(null);
 
-const WeatherProvider = ({ children }: { children: React.ReactNode }) => {
-    const [coords, setCoords] = React.useState({
-        latitude: 0,
-        longitude: 0
-    });
+const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [coords, setCoords] = React.useState({ latitude: 0, longitude: 0 });
     const [error, setError] = React.useState<string>("");
 
     const updateCoords = (latitude: number, longitude: number) => {
@@ -27,4 +24,4 @@ const WeatherProvider = ({ children }: { children: React.ReactNode }) => {
     );
 }
 
-export { LocationContext, WeatherProvider };
+export { LocationContext, LocationProvider };
