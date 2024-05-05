@@ -12,14 +12,8 @@ export const useUserLocation = () => {
     }, []);
 
     const updateLocation = () => {
-        if (navigator.permissions) {
-            navigator.permissions.query({ name: 'geolocation' }).then((permissionStatus) => {
-                if (permissionStatus.state === 'denied') {
-                    setError("Location access is blocked. Please enable it in your browser settings.");
-                } else {
-                    navigator.geolocation.getCurrentPosition(showPosition, showError);
-                }
-            });
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
         } else {
             setError("Geolocation permissions API is not supported by your browser.");
         }

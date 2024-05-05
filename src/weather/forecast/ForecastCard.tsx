@@ -54,7 +54,7 @@ export const ForecastCard: React.FC<{ forecastList: ForecastItem[] }> = ({ forec
     });
 
     return (
-        <Card>
+        <Card data-testid="forecast-card">
             <Card.Header>3 Hour Forecast</Card.Header>
             <Card.Body>
                 <Table>
