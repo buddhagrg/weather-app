@@ -1,4 +1,4 @@
-import { render } from "../utils/test-utils";
+import { render } from "../utils/rtl-custom-render";
 import { Header } from "./Header";
 
 describe("<Header />", () => {
@@ -16,9 +16,9 @@ describe("<Header />", () => {
 
     it("renders component with the provided co-ordinates", () => {
         const LAT = 24;
-        const LONG = 30;
-        const PROVIDED_TEXT = `Latitude: ${LAT}, Longitude: ${LONG}`
-        const { getByText } = render(<Header />, { coords: { latitude: LAT, longitude: LONG } });
+        const LON = 30;
+        const PROVIDED_TEXT = `Latitude: ${LAT}, Longitude: ${LON}`
+        const { getByText } = render(<Header />, { coords: { latitude: LAT, longitude: LON } });
         expect(getByText(PROVIDED_TEXT)).toBeInTheDocument();
     });
 });

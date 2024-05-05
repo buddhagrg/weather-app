@@ -1,6 +1,6 @@
 export type Coord = {
-    latitude: number;
-    longitude: number;
+    lat: number;
+    lon: number;
 };
 export type CoordProps = {
     coords: Coord
@@ -34,7 +34,7 @@ export type Clouds = {
     all: number;
 };
 
-export type Sys = {
+export type SysWeather = {
     country: string;
     sunrise: number;
     sunset: number;
@@ -47,11 +47,15 @@ export type WeatherData = {
     wind: Wind,
     clouds: Clouds,
     dt: number,
-    sys: Sys,
+    sys: SysWeather,
     timezone: number,
     id: number,
     name: string,
     cod: number
+};
+
+export type SysForecast = {
+    pod: string;
 };
 
 export type ForecastItem = {
@@ -72,6 +76,23 @@ export type ForecastItem = {
     wind: Wind;
     visibility: number;
     pop: number;
-    sys: Sys;
+    sys: SysForecast;
     dt_txt: string;
+};
+
+export type ForecastData = {
+    cod: string;
+    message: number | string;
+    cnt: number;
+    list?: ForecastItem[],
+    city: {
+        id: number;
+        name: string;
+        coord: Coord;
+        country: string;
+        population: number;
+        timezone: number;
+        sunrise: number;
+        sunset: number;
+    }
 };

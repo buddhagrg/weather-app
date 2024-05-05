@@ -1,25 +1,9 @@
 import * as React from "react";
 import { LocationContext, LocationContextProps } from "../../context/LocationContext";
 import { useFetch } from "../../hooks/useFetch";
-import { Coord, ForecastItem } from "../types";
+import { ForecastData } from "../types";
 import { ForecastCard } from "./ForecastCard";
-
-type ForecastData = {
-    cod: string;
-    message: number | string;
-    cnt: number;
-    list: ForecastItem[],
-    city: {
-        id: number;
-        name: string;
-        coord: Coord;
-        country: string;
-        population: number;
-        timezone: number;
-        sunrise: number;
-        sunset: number;
-    }
-};
+import { LOADING, NO_RECORD } from "../const";
 
 export const Forecast: React.FC = () => {
     const { coords } = React.useContext(LocationContext) as LocationContextProps;
@@ -27,24 +11,23 @@ export const Forecast: React.FC = () => {
 
     let content;
     if (loading) {
-        content = <>loading...</>
+        content = <>{LOADING}</>
     } else if (error) {
         content = <>{error}</>
     } else if (data === null) {
-        content = <>loading...</>
+        content = <>{NO_RECORD}</>
     } else {
         const { cod, list } = data as ForecastData;
         if (cod !== '200' || !Array.isArray(list) || list.length <= 0) {
-            content = <>Record not found</>
-            return;
+            content = <>{NO_RECORD}</>
+        } else {
+            content = <ForecastCard forecastList={list} />
         }
-
-        content = <ForecastCard forecastList={list} />
     }
 
     return (
-        <>
+        <div data-testid="forecast">
             {content}
-        </>
+        </div>
     );
 }

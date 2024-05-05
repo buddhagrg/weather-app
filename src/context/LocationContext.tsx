@@ -7,9 +7,9 @@ export type LocationContextProps = {
     setError: (msg: string) => void;
 };
 
-const LocationContext = React.createContext<LocationContextProps | null>(null);
+export const LocationContext = React.createContext<LocationContextProps | null>(null);
 
-const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [coords, setCoords] = React.useState({ latitude: 0, longitude: 0 });
     const [error, setError] = React.useState<string>("");
 
@@ -23,5 +23,3 @@ const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ children })
         </LocationContext.Provider>
     );
 }
-
-export { LocationContext, LocationProvider };
