@@ -8,12 +8,16 @@ import { Footer } from "./components/Footer";
 
 const App = () => {
   const { updateCoords, setError } = React.useContext(LocationContext) as LocationContextProps;
-  const { error, position } = useUserLocation();
+
+  const onLocationUpdate = (latitude: number, longitude: number) => {
+    updateCoords(latitude, longitude);
+  }
+
+  const { error } = useUserLocation(onLocationUpdate);
 
   React.useEffect(() => {
-    updateCoords(position.latitude, position.longitude);
     setError(error);
-  }, [position, error]);
+  }, [error]);
 
   return (
     <Container fluid="sm">
