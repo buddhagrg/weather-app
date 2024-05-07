@@ -1,4 +1,4 @@
-import { render } from "../utils/rtl-custom-render";
+import { render } from "../utils/rtl-custom";
 import { Header } from "./Header";
 
 describe("<Header />", () => {

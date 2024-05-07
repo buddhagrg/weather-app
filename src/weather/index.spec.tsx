@@ -1,4 +1,4 @@
-import { fireEvent, render } from "../utils/rtl-custom-render";
+import { fireEvent, render } from "../utils/rtl-custom";
 import { Weather } from "./index";
 
 describe("Weather component", () => {

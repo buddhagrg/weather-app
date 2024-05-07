@@ -1,5 +1,5 @@
 import { CURRENT_WEATHER } from "../../mocks/data";
-import { render } from "../../utils/rtl-custom-render";
+import { render } from "../../utils/rtl-custom";
 import { TodayCard } from "./TodayCard";
 
 describe("<TodayCard />", () => {

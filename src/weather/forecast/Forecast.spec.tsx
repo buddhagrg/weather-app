@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import { render } from "../../utils/rtl-custom-render";
+import { render } from "../../utils/rtl-custom";
 import { Forecast } from "./Forecast";
 import { useFetch } from "../../hooks/useFetch";
 import { FORECAST } from "../../mocks/data";

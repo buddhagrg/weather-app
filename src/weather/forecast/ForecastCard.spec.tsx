@@ -1,5 +1,5 @@
 import { FORECAST } from "../../mocks/data";
-import { render } from "../../utils/rtl-custom-render";
+import { render } from "../../utils/rtl-custom";
 import { ForecastCard } from "./ForecastCard";
 
 describe("<ForecastCard />", () => {

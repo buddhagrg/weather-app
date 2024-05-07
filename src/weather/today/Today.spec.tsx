@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import { render } from "../../utils/rtl-custom-render";
+import { render } from "../../utils/rtl-custom";
 import { Today } from "./Today";
 import { useFetch } from "../../hooks/useFetch";
 import { CURRENT_WEATHER } from "../../mocks/data";
