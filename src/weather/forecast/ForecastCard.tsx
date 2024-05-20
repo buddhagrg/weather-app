@@ -22,7 +22,7 @@ const getBodyData = (item: { [key: string]: Item[] }) => {
         const dayAndDateTr = <tr key={dayAndDate}><th colSpan={5}>{dayAndDate}</th></tr>;
         const entryItems = entries.map(({ unformattedDt, time, tempC, icon, speed, description, humidity }) => (
             <tr key={unformattedDt}>
-                <td>{time}</td>
+                <td style={{ minWidth: 100 }}>{time}</td>
                 <td>{tempC}</td>
                 <td><img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />{` `}{description}</td>
                 <td title="Rain"><GiHeavyRain />{` `}{`${humidity}%`}</td>
@@ -56,7 +56,7 @@ export const ForecastCard: React.FC<{ forecastList: ForecastItem[] }> = ({ forec
     return (
         <Card data-testid="forecast-card">
             <Card.Header>3 Hour Forecast</Card.Header>
-            <Card.Body>
+            <Card.Body className="card-body">
                 <Table>
                     <tbody>
                         {getBodyData(item)}

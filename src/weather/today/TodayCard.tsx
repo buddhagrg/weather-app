@@ -38,7 +38,7 @@ export const TodayCard: React.FC<{ data: WeatherData }> = ({ data }) => {
     return (
         <Card data-testid="today-card">
             <Card.Header data-testid="city">{city} As of {getFormattedTimeWithUTCtz(dateInSeconds)}</Card.Header>
-            <Card.Body>
+            <Card.Body className="card-body">
                 <div className="d-flex">
                     <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
                     <div className="param">

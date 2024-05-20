@@ -2,3 +2,7 @@
     align-self: center;
     margin-left: 40px;
 }
+
+.card-body {
+    overflow: auto;
+}
