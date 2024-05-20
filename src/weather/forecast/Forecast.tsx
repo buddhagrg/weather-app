@@ -6,11 +6,13 @@ import { ForecastCard } from "./ForecastCard";
 import { LOADING, NO_RECORD } from "../const";
 
 export const Forecast: React.FC = () => {
-    const { coords } = React.useContext(LocationContext) as LocationContextProps;
+    const { coords, error: locationAccessError } = React.useContext(LocationContext) as LocationContextProps;
     const { loading, error, data } = useFetch("forecast", coords.latitude, coords.longitude);
 
     let content;
-    if (loading) {
+    if (locationAccessError) {
+        content = <span className="text-danger">{locationAccessError}</span>
+    } else if (loading) {
         content = <>{LOADING}</>
     } else if (error) {
         content = <>{error}</>

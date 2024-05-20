@@ -5,11 +5,13 @@ import { TodayCard } from "./TodayCard";
 import { LOADING, NO_RECORD } from "../const";
 
 export const Today = () => {
-    const { coords } = React.useContext(LocationContext) as LocationContextProps;
+    const { coords, error: locationAccessError } = React.useContext(LocationContext) as LocationContextProps;
     const { loading, error, data } = useFetch("weather", coords.latitude, coords.longitude);
 
     let content;
-    if (loading) {
+    if (locationAccessError) {
+        content = <span className="text-danger">{locationAccessError}</span>
+    } else if (loading) {
         content = <>{LOADING}</>
     } else if (error) {
         content = <>{error}</>
