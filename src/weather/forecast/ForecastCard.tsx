@@ -24,7 +24,7 @@ const getBodyData = (item: { [key: string]: Item[] }) => {
             <tr key={unformattedDt}>
                 <td style={{ minWidth: 100 }}>{time}</td>
                 <td>{tempC}</td>
-                <td><img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />{` `}{description}</td>
+                <td><img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Current weather description" />{` `}{description}</td>
                 <td title="Rain"><GiHeavyRain />{` `}{`${humidity}%`}</td>
                 <td title="Wind"><FiWind />{` `}{`${speed ? mpsToKph(speed) : 0} km/hr`}</td>
             </tr>

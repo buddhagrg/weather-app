@@ -40,7 +40,7 @@ export const TodayCard: React.FC<{ data: WeatherData }> = ({ data }) => {
             <Card.Header data-testid="city">{city} As of {getFormattedTimeWithUTCtz(dateInSeconds)}</Card.Header>
             <Card.Body className="card-body">
                 <div className="d-flex">
-                    <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
+                    <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Current weather description" />
                     <div className="param">
                         <WiThermometer style={iconSize} />
                         <span>{getTemperatureInCelsius(temp)}</span>
